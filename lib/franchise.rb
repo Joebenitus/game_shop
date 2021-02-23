@@ -33,4 +33,8 @@ class Franchise
   def update(name)
     @name = name
   end
+
+  def delete
+    @@franchises.delete(self.id)
+  end
 end

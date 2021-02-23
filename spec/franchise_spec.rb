@@ -51,12 +51,23 @@ describe '#Franchise' do
     end
   end
 
-  describe('.find') do
+  describe('#update') do
     it('updates a franchise by id') do
       franchise = Franchise.new('Dark Souls', nil)
       franchise.save()
       franchise.update('Resident Evil')
       expect(franchise.name).to(eq('Resident Evil'))
+    end
+  end
+
+  describe('#delete') do
+    it('deletes a franchise by id') do
+      franchise1 = Franchise.new('Dark Souls', nil)
+      franchise1.save()
+      franchise2 = Franchise.new('Zelda', nil)
+      franchise2.save()
+      franchise1.delete()
+      expect(Franchise.all).to(eq([franchise2]))
     end
   end
 end
