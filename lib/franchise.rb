@@ -29,4 +29,8 @@ class Franchise
   def ==(franchise_to_compare)
     self.name() == franchise_to_compare.name()
   end
+
+  def update(name)
+    @name = name
+  end
 end

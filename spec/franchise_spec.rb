@@ -50,4 +50,13 @@ describe '#Franchise' do
       expect(Franchise.find(franchise1.id)).to(eq(franchise1))
     end
   end
+
+  describe('.find') do
+    it('updates a franchise by id') do
+      franchise = Franchise.new('Dark Souls', nil)
+      franchise.save()
+      franchise.update('Resident Evil')
+      expect(franchise.name).to(eq('Resident Evil'))
+    end
+  end
 end
