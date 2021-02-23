@@ -13,6 +13,15 @@ class Franchise
     @@franchises.values()
   end
 
+  def self.clear
+    @@franchises = {}
+    @@total_rows = 0
+  end
+
+  def self.find(id)
+    @@franchises[id]
+  end
+
   def save
     @@franchises[self.id] = Franchise.new(self.name, self.id)
   end
