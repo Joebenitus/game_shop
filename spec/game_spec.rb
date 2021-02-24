@@ -90,4 +90,12 @@ describe '#Game' do
       expect(Game.find_by_franchise(franchise2.id)).to(eq([game2]))
     end
   end
+
+  describe('#franchise') do
+    it("finds the franchise a game belongs to") do
+      game = Game.new("Five Nights at Freddy's 4", @franchise.id, nil)
+      game.save()
+      expect(game.franchise()).to(eq(@franchise))
+    end
+  end
 end

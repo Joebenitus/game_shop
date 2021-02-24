@@ -51,5 +51,7 @@ class Game
     games
   end
 
-  
+  def franchise
+    Franchise.find(self.franchise_id)
+  end
 end
