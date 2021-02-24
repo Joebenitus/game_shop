@@ -78,4 +78,16 @@ describe '#Game' do
       expect(Game.all).to(eq([game2]))
     end
   end
+
+  describe('.find_by_franchise') do
+    it("finds games for an franchise") do
+      franchise2 = Franchise.new("Call of Duty", nil)
+      franchise2.save
+      game = Game.new("Call of Duty 2", @franchise.id, nil)
+      game.save()
+      game2 = Game.new("Call of Duty 3", franchise2.id , nil)
+      game2.save()
+      expect(Game.find_by_franchise(franchise2.id)).to(eq([game2]))
+    end
+  end
 end

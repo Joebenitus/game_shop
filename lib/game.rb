@@ -40,4 +40,14 @@ class Game
   def self.clear
     @@games = {}
   end
+
+  def self.find_by_franchise(fran_id)
+    games = []
+    @@games.values.each do |game|
+      if game.franchise_id == fran_id
+        games.push(game)
+      end
+    end
+    games
+  end
 end
