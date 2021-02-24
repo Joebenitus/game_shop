@@ -37,4 +37,8 @@ class Franchise
   def delete
     @@franchises.delete(self.id)
   end
+
+  def games
+    Game.find_by_franchise(self.id)
+  end
 end

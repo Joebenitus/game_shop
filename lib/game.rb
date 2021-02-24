@@ -50,4 +50,6 @@ class Game
     end
     games
   end
+
+  
 end

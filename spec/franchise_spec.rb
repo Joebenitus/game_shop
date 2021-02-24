@@ -70,4 +70,17 @@ describe '#Franchise' do
       expect(Franchise.all).to(eq([franchise2]))
     end
   end
+
+  describe('#games') do
+    it("returns a franchise's games") do
+      franchise = Franchise.new("Halo", nil)
+      franchise.save()
+      game = Game.new("Halo 3", franchise.id, nil)
+      game.save()
+      game2 = Game.new("Halo Reach", franchise.id, nil)
+      game2.save()
+      expect(franchise.games).to(eq([game, game2]))
+    end
+  end
+
 end
