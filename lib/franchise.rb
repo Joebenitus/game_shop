@@ -44,7 +44,7 @@ class Franchise
   end
 
   def delete
-    @@franchises.delete(self.id)
+    DB.exec("DELETE FROM franchises WHERE id = #{@id};")
   end
 
   def games

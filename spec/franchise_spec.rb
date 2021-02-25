@@ -56,16 +56,16 @@ describe '#Franchise' do
     end
   end
 
-  # describe('#delete') do
-  #   it('deletes a franchise by id') do
-  #     franchise1 = Franchise.new('Dark Souls', nil)
-  #     franchise1.save()
-  #     franchise2 = Franchise.new('Zelda', nil)
-  #     franchise2.save()
-  #     franchise1.delete()
-  #     expect(Franchise.all).to(eq([franchise2]))
-  #   end
-  # end
+  describe('#delete') do
+    it('deletes a franchise by id') do
+      franchise1 = Franchise.new({:name => 'Dark Souls', :id => nil})
+      franchise1.save()
+      franchise2 = Franchise.new({:name => "Call of Duty", :id => nil})
+      franchise2.save()
+      franchise1.delete()
+      expect(Franchise.all).to(eq([franchise2]))
+    end
+  end
 
   # describe('#games') do
   #   it("returns a franchise's games") do
