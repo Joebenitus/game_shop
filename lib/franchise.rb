@@ -19,8 +19,7 @@ class Franchise
   end
 
   def self.clear
-    @@franchises = {}
-    @@total_rows = 0
+    DB.exec("DELETE FROM franchises *;")
   end
 
   def self.find(id)
