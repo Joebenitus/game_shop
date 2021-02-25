@@ -37,15 +37,15 @@ describe '#Franchise' do
     end
   end
 
-  # describe('.find') do
-  #   it('finds a franchise by id') do
-  #     franchise1 = Franchise.new('Dark Souls', nil)
-  #     franchise1.save()
-  #     franchise2 = Franchise.new('Final Fantasy', nil)
-  #     franchise2.save()
-  #     expect(Franchise.find(franchise1.id)).to(eq(franchise1))
-  #   end
-  # end
+  describe('.find') do
+    it('finds a franchise by id') do
+      franchise1 = Franchise.new({:name => 'Dark Souls', :id => nil})
+      franchise1.save()
+      franchise2 = Franchise.new({:name => 'Final Fantasy', :id => nil})
+      franchise2.save()
+      expect(Franchise.find(franchise1.id)).to(eq(franchise1))
+    end
+  end
 
   # describe('#update') do
   #   it('updates a franchise by id') do

@@ -23,7 +23,10 @@ class Franchise
   end
 
   def self.find(id)
-    @@franchises[id]
+    franchise = DB.exec("SELECT * FROM franchises WHERE id = #{id};").first
+    name = franchise.fetch("name")
+    id = franchise.fetch("id")
+    Franchise.new({:name => name, :id => id})
   end
 
   def save
