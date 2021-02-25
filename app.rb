@@ -1,6 +1,9 @@
 require('sinatra')
 require('sinatra/reloader')
+require('pg')
 also_reload('lib/**/*.rb')
+
+DB = PG.connect({:dbname => 'game_shop'})
 
 get('/') do
   "This is the dope home page for Joe's video game shop."

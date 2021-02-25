@@ -1,16 +1,21 @@
 class Franchise
-  attr_reader :id, :name
+  attr_reader :id
+  attr_accessor :name
 
-  @@franchises = {}
-  @@total_rows = 0
-
-  def initialize(name, id)
-    @name = name
-    @id = id || @@total_rows += 1
+  def initialize(attributes)
+    @name = attributes.fetch(:name)
+    @id = attributes.fetch(:id)
   end
 
   def self.all
-    @@franchises.values()
+    returned_franchises = DB.exec("SELECT * FROM franchises;")
+    franchises = []
+    returned_franchises.each() do |fran|
+      name = fran.fetch("name")
+      id = fran.fetch("id").to_i
+      franchises.push(Franchise.new({:name => name, :id => id}))
+    end
+    franchises
   end
 
   def self.clear
@@ -23,7 +28,8 @@ class Franchise
   end
 
   def save
-    @@franchises[self.id] = Franchise.new(self.name, self.id)
+    result = DB.exec("INSERT INTO franchises (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first().fetch("id").to_i
   end
 
   def ==(franchise_to_compare)

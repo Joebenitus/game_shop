@@ -5,9 +5,9 @@ class Game
   @@games = {}
   @@total_rows = 0
 
-  def initialize(name, franchise_id, id)
-    @name = name
-    @franchise_id = franchise_id
+  def initialize(attributes)
+    @name = attributes.fetch(:name)
+    @franchise_id = attributes.fetch(:franchise_id)
     @id = id || @@total_rows += 1
   end
 
