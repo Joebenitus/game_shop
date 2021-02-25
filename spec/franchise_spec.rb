@@ -47,14 +47,14 @@ describe '#Franchise' do
     end
   end
 
-  # describe('#update') do
-  #   it('updates a franchise by id') do
-  #     franchise = Franchise.new('Dark Souls', nil)
-  #     franchise.save()
-  #     franchise.update('Resident Evil')
-  #     expect(franchise.name).to(eq('Resident Evil'))
-  #   end
-  # end
+  describe('#update') do
+    it('updates a franchise by id') do
+      franchise = Franchise.new({:name => 'Dark Souls', :id => nil})
+      franchise.save()
+      franchise.update('Resident Evil')
+      expect(franchise.name).to(eq('Resident Evil'))
+    end
+  end
 
   # describe('#delete') do
   #   it('deletes a franchise by id') do

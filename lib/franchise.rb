@@ -40,6 +40,7 @@ class Franchise
 
   def update(name)
     @name = name
+    DB.exec("UPDATE franchises SET name = '#{@name}' WHERE id = #{@id};")
   end
 
   def delete
