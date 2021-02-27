@@ -18,13 +18,13 @@ describe '#Franchise' do
     end
   end
 
-  # describe('#==') do
-  #   it('is the same franchise if they have the same attributes') do
-  #     franchise1 = Franchise.new('Call of Duty', nil)
-  #     franchise2 = Franchise.new('Call of Duty', nil)
-  #     expect(franchise1).to(eq(franchise2))
-  #   end
-  # end
+  describe('#==') do
+    it('is the same franchise if they have the same attributes') do
+      franchise1 = Franchise.new({:name => "Naima", :id => nil})
+      franchise2 = Franchise.new({:name => "Naima", :id => nil})
+      expect(franchise1).to(eq(franchise2))
+    end
+  end
 
   describe('.clear') do
     it('clears all franchises') do
