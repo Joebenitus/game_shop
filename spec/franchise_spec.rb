@@ -67,16 +67,16 @@ describe '#Franchise' do
     end
   end
 
-  # describe('#games') do
-  #   it("returns a franchise's games") do
-  #     franchise = Franchise.new("Halo", nil)
-  #     franchise.save()
-  #     game = Game.new("Halo 3", franchise.id, nil)
-  #     game.save()
-  #     game2 = Game.new("Halo Reach", franchise.id, nil)
-  #     game2.save()
-  #     expect(franchise.games).to(eq([game, game2]))
-  #   end
-  # end
+  describe('#games') do
+    it("returns a franchise's games") do
+      franchise = Franchise.new({:name => "Halo", :id => nil})
+      franchise.save()
+      game = Game.new({:name => "Halo 3", :franchise_id => franchise.id, :id => nil})
+      game.save()
+      game2 = Game.new({:name => "Halo Reach", :franchise_id => franchise.id, :id => nil})
+      game2.save()
+      expect(franchise.games).to(eq([game, game2]))
+    end
+  end
 
 end
