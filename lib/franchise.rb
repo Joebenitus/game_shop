@@ -45,6 +45,7 @@ class Franchise
 
   def delete
     DB.exec("DELETE FROM franchises WHERE id = #{@id};")
+    DB.exec("DELETE FROM games WHERE franchise_id = #{@id};")
   end
 
   def games

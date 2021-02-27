@@ -9,7 +9,11 @@ class Game
   end
 
   def ==(game_to_compare)
-    (self.name() == game_to_compare.name()) && (self.franchise_id() == game_to_compare.franchise_id())
+    if game_to_compare
+      (self.name() == game_to_compare.name()) && (self.franchise_id() == game_to_compare.franchise_id())
+    else
+      false
+    end
   end
 
   def self.all
@@ -32,10 +36,14 @@ class Game
 
   def self.find(id)
     game = DB.exec("SELECT * FROM games WHERE id = #{id};").first()
-    name = game.fetch("name")
-    franchise_id = game.fetch("franchise_id").to_i
-    id = game.fetch("id").to_i
-    Game.new({:name => name, :franchise_id => franchise_id, :id => id})
+    if game
+      name = game.fetch("name")
+      franchise_id = game.fetch("franchise_id").to_i
+      id = game.fetch("id").to_i
+      Game.new({:name => name, :franchise_id => franchise_id, :id => id})
+    else
+      nil
+    end
   end
 
   def update(name, franchise_id)

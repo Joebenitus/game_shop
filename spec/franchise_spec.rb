@@ -79,4 +79,15 @@ describe '#Franchise' do
     end
   end
 
+  describe('#delete') do
+    it("deletes all games belonging to a deleted franchise") do
+      franchise = Franchise.new({:name => "A Love Supreme", :id => nil})
+      franchise.save()
+      game = Game.new({:name => "Naima", :franchise_id => franchise.id, :id => nil})
+      game.save()
+      franchise.delete()
+      expect(Game.find(game.id)).to(eq(nil))
+    end
+  end
+
 end
